@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Me a Coffee!</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .coffee-image {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .donation-options {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .donation-button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            background-color: #f0c14b; /* A coffee-like color */
+            color: #333;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .donation-button:hover {
+            background-color: #e0b13b;
+        }
+
+        .custom-donation {
+            margin-top: 20px;
+        }
+
+        .custom-donation input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 80px;
+        }
+
+        .custom-donation button {
+            padding: 8px 15px;
+            border: none;
+            background-color: #f0c14b;
+            color: #333;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .custom-donation button:hover{
+          background-color:#e0b13b;
+        }
+
+        #thank-you {
+            margin-top: 20px;
+            display: none; /* Initially hidden */
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Buy Me a Coffee!</h1>
+    <img src="coffee.jpg" alt="Coffee Cup" class="coffee-image">
+    <p>Support my work and buy me a coffee!</p>
+
+    <div class="donation-options">
+        <button class="donation-button" onclick="donate(3)">$3</button>
+        <button class="donation-button" onclick="donate(5)">$5</button>
+        <button class="donation-button" onclick="donate(10)">$10</button>
+    </div>
+
+    <div class="custom-donation">
+        <label for="custom-amount">Custom Amount: $</label>
+        <input type="number" id="custom-amount" min="1" value="1">
+        <button onclick="donate(parseFloat(document.getElementById('custom-amount').value))">Donate</button>
+    </div>
+
+    <p id="thank-you">Thank you for your support!</p>
+
+    <script>
+        function donate(amount) {
+            // In a real application, you would integrate a payment gateway here.
+            // For this example, we'll just show a thank you message.
+            console.log("Donation of $" + amount + " received.");
+            document.getElementById("thank-you").style.display = "block";
+
+            //Simulate a small delay, then hide the message again.
+            setTimeout(function() {
+                document.getElementById('thank-you').style.display = 'none';
+            }, 3000); // 3 seconds
+        }
+    </script>
+</body>
+</html>
